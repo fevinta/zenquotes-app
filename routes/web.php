@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\FavoriteController;
 use Illuminate\Support\Facades\Route;
+use Livewire\Volt\Volt;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome');
+Route::get('/', function () {
+    return view('today');
+});
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::view('today', 'today')->name('today');
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+Volt::route('quotes', 'quotes')->middleware(['guest'])->name('quotes');
 
-require __DIR__.'/auth.php';
+Route::middleware(['auth'])->group(function () {
+    Route::view('favorite-quotes', 'favorites')->name('favorites');
+    Route::view('secure-quotes', 'secure-quotes')->name('secure-quotes');
+    Route::view('profile', 'profile')->name('profile');
+    Route::view('report-favorite-quotes', 'report-favorite-quotes')->name('report-favorite-quotes');
+});
+
+require __DIR__ . '/auth.php';

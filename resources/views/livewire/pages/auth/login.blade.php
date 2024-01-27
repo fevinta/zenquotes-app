@@ -6,10 +6,19 @@ use Illuminate\Support\Facades\Session;
 
 use function Livewire\Volt\form;
 use function Livewire\Volt\layout;
+use function Livewire\Volt\mount;
 
 layout('layouts.guest');
 
 form(LoginForm::class);
+
+mount(function () {
+    $this->form->fill([
+        'email' => request()->query('email', ''),
+        'password' => '',
+        'remember' => false,
+    ]);
+});
 
 $login = function () {
     $this->validate();

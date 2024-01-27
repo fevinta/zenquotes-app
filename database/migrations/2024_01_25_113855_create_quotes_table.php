@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('author_id')->constrained();
-            $table->text('quote');
+            $table->text('quote')->unique();
             $table->timestamps();
 
             $table->unique(['author_id', 'quote']);

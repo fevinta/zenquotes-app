@@ -11,8 +11,7 @@ class Author extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'image'
+        'name'
     ];
 
     public function Quotes(): HasMany
