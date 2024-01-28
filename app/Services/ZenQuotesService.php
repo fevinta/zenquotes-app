@@ -3,9 +3,9 @@
 namespace App\Services;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 use Psr\Http\Message\ResponseInterface;
 
 class ZenQuotesService
@@ -41,9 +41,57 @@ class ZenQuotesService
         ];
     }
 
-    public function getRandomQuote(): array
+    public function getRandomQuotes(int $quantity = 1, bool $forceNew = false): array
     {
-        return $this->parseResponse($this->get('random'))[0];
+        $cachedQuotes = $this->getCachedQuotes();
+
+        if ($forceNew) {
+            $quotes = $this->fetchNewQuotes($quantity);
+            $this->updateCache($cachedQuotes->merge($quotes));
+
+            return $quotes->all();
+        } else {
+            if ($cachedQuotes->count() < $quantity) {
+                $newQuotes = $this->fetchNewQuotes($quantity - $cachedQuotes->count());
+                $cachedQuotes = $cachedQuotes->merge($newQuotes);
+                $this->updateCache($cachedQuotes);
+            }
+
+            return $this->getRandomizedQuotes($cachedQuotes, $quantity);
+        }
+    }
+
+    private function getCachedQuotes(): Collection
+    {
+        return collect(Cache::get('random-quotes', []));
+    }
+
+    private function fetchNewQuotes(int $quantity): Collection
+    {
+        $quotes = collect();
+        while ($quotes->count() < $quantity) {
+            $newQuote = $this->parseResponse($this->get('random'))[0];
+            if ($newQuote['q'] === 'Too many requests. Obtain an auth key for unlimited access.') {
+                break;
+            }
+            $quotes->push($newQuote);
+        }
+
+        return $quotes;
+    }
+
+    private function updateCache(Collection $quotes): void
+    {
+        Cache::put('random-quotes', $quotes->toArray());
+    }
+
+    private function getRandomizedQuotes(Collection $quotes, int $quantity): array
+    {
+        if ($quotes->count() < $quantity) {
+            return $quotes->all();
+        }
+
+        return $quotes->random($quantity)->all();
     }
 
     public function getImage(): string

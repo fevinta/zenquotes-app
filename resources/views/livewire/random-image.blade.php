@@ -1,18 +1,13 @@
 <?php
 
 use \App\Services\ZenQuotesService;
-use \Illuminate\Support\Facades\Cache;
-use function Livewire\Volt\{state, layout, mount};
+use function Livewire\Volt\{state, layout};
 
 layout('layouts.app');
 
 state([
-    'image' => null
+    'image' => fn(ZenQuotesService $service) => $service->getImage()
 ]);
-
-mount(function (ZenQuotesService $service) {
-    $this->image = $service->getImage();
-});
 
 ?>
 <div>

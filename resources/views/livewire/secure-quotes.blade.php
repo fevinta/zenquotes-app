@@ -7,14 +7,15 @@ use function Livewire\Volt\{computed, layout};
 layout('layouts.app');
 
 $quotes = computed(function (ZenQuotesService $service) {
-    $this->quotes = $service->getRandomQuotes(5);
+    return $service->getRandomQuotes(10);
 });
 
-$favorite = function (string $author, string $quote, Favorite $favorite) {
+$addFavorite = function (string $author, string $quote, Favorite $favorite) {
     $favorite(
         author: $author,
         quote: $quote
     );
+
     $this->dispatch('notify', 'Favorite added!');
 };
 
@@ -26,17 +27,17 @@ $favorite = function (string $author, string $quote, Favorite $favorite) {
             <li class="flex gap-x-4 py-5">
                 <div class="flex-auto">
                     <div class="flex items-baseline justify-between gap-x-4">
-                        <p class="text-sm font-semibold leading-6 text-gray-900">
-                            {{ $quote->author->name }}
+                        <p class="text-sm leading-6 text-gray-900">
+                            {{ $quote['q'] }}
                         </p>
                     </div>
                     <div class="flex items-baseline justify-between gap-x-4">
-                        <p class="text-sm  leading-6 text-gray-600">
-                            {{ $quote->quote }}
+                        <p class="text-sm font-semibold leading-6 text-gray-600">
+                            {{ $quote['a'] }}
                         </p>
-                        <button wire:click="unfavoriteQuote({{$quote->id}})"
-                                class="flex-none text-xs text-red-600 hover:underline">
-                            Remove
+                        <button wire:click="addFavorite('{{ $quote['a'] }}', '{{ $quote['q'] }}')"
+                                class="flex-none text-xs text-indigo-600 hover:underline">
+                            Favorite
                         </button>
                     </div>
                 </div>

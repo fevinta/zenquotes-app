@@ -1,19 +1,15 @@
 <?php
 
-use \App\Services\ZenQuotesService;
-use \Illuminate\Support\Facades\Cache;
-use function Livewire\Volt\{state, layout, mount};
-use App\Models\Author;
+use App\Livewire\Actions\Favorite;
+use App\Services\ZenQuotesService;
+use Illuminate\Support\Facades\Cache;
+use function Livewire\Volt\{layout, state};
 
 layout('layouts.app');
 
 state([
-    'quote' => null
+    'quote' => fn(ZenQuotesService $service) => $service->getTodayQuote()
 ]);
-
-mount(function (ZenQuotesService $service) {
-    $this->quote = $service->getTodayQuote();
-});
 
 $clearCache = function (ZenQuotesService $service) {
     Cache::forget('today-quote');
@@ -24,16 +20,12 @@ $refreshQuote = function (ZenQuotesService $service) {
     $this->quote = $service->getTodayQuote(refresh: true);
 };
 
-$favorite = function () {
-    if (!auth()->check()) {
-        return redirect()->route('login');
-    }
-
-    $author = Author::firstOrCreate(['name' => $this->quote['data']['a']]);
-
-    $quoteModel = $author->quotes()->firstOrCreate(['quote' => $this->quote['data']['q']]);
-
-    auth()->user()->Quotes()->syncWithoutDetaching([$quoteModel->id]);
+$favorite = function (Favorite $favorite) {
+    $favorite(
+        author: $this->quote['data']['a'],
+        quote: $this->quote['data']['q']
+    );
+    $this->dispatch('notify', 'Today\'s quote added to favorites!');
 };
 
 ?>
@@ -44,7 +36,7 @@ $favorite = function () {
         @if($quote['cached'])
             <x-cache-button wire:click="clearCache"/>
         @endif
-        <x-refresh-button/>
+        <x-refresh-button wire:click="refreshQuote"/>
         <x-favorite-button wire:click="favorite"/>
     </x-quote>
 </div>

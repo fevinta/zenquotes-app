@@ -21,13 +21,16 @@ Route::get('/', function () {
 
 Route::view('today', 'today')->name('today');
 
-Volt::route('quotes', 'quotes')->middleware(['guest'])->name('quotes');
+Route::middleware(['guest'])->group(function () {
+    Volt::route('quotes', 'quotes')->middleware(['guest'])->name('quotes');
+});
 
 Route::middleware(['auth'])->group(function () {
-    Route::view('favorite-quotes', 'favorites')->name('favorites');
-    Route::view('secure-quotes', 'secure-quotes')->name('secure-quotes');
+    Volt::route('favorite-quotes', 'favorites-quotes')->name('favorite-quotes');
+    Volt::route('secure-quotes', 'secure-quotes')->name('secure-quotes');
+    Volt::route('report-favorite-quotes', 'report-favorite-quotes')->name('report-favorite-quotes');
+
     Route::view('profile', 'profile')->name('profile');
-    Route::view('report-favorite-quotes', 'report-favorite-quotes')->name('report-favorite-quotes');
 });
 
 require __DIR__ . '/auth.php';
