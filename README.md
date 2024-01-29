@@ -116,17 +116,17 @@ The application should have the following features:
 - [X] The page is accessible to unauthenticated users.
 - [X] The page is accessible to authenticated/logged in users.
 
--- OK --
-
 ### 13. Feature: REST API for Ten Secure Quotes
-- [ ] REST API GET and POST endpoint with URI of “/api/secure-quotes” for Feature: Ten Secure Quotes.
-- [ ] The API should return cached information, if available, by default
-    - [ ] If cache was used, each of the quotes should be prefixed with “[cached] ” keyword/tag.
-    - [ ] The API shares cache with the Feature: Ten Secure Quotes
-- [ ] The API can be forced to fetch and return fresh set of results (and update the cache) with a “new” parameter (e.g., “/api/secure-quotes/new”)
-- [ ] The API endpoint is secured with API login token.
-- [ ] The page is accessible to authenticated/logged in users only.
-- [ ] The page returns empty JSON for unauthenticated users.
+- [X] REST API GET and POST endpoint with URI of “/api/secure-quotes” for Feature: Ten Secure Quotes.
+- [X] The API should return cached information, if available, by default
+    - [X] If cache was used, each of the quotes should be prefixed with “[cached] ” keyword/tag.
+    - [X] The API shares cache with the Feature: Ten Secure Quotes
+- [X] The API can be forced to fetch and return fresh set of results (and update the cache) with a “new” parameter (e.g., “/api/secure-quotes/new”)
+- [X] The API endpoint is secured with API login token.
+- [X] The page is accessible to authenticated/logged in users only.
+- [X] The page returns empty JSON for unauthenticated users.
+
+-- OK --
 
 ### 14. Feature: Online API Test
 - [ ] A web page with URI of “/api-test” that allows us to test API endpoints.

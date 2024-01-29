@@ -3,22 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Services\ZenQuotesService;
+use Illuminate\Support\Collection;
 
-class QuoteController
+abstract class ApiController
 {
     public function __construct(
-        private readonly ZenQuotesService $service
+        protected readonly ZenQuotesService $service
     ) {
         //
     }
 
-    public function Index(bool $new = false)
+    public function parseListOfQuotes(array $data): Collection
     {
-        $data = $this->service->requestQuotes(
-            quantity: 5,
-            refresh: $new
-        );
-
         return collect($data['quotes'])->map(function ($quote) use ($data) {
             return [
                 'text'   => ($data['cached'] ? '[Cached] ' : '') . $quote['q'],

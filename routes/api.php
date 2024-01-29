@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\QuotesController;
+use App\Http\Controllers\Api\SecureQuotesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Api\QuoteController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,9 +16,12 @@ use App\Http\Controllers\Api\QuoteController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::get('secure-quotes/{new?}', [SecureQuotesController::class, 'index']);
+    Route::post('secure-quotes/{new?}', [SecureQuotesController::class, 'index']);
 });
 
-
-Route::get('quotes/{new?}', [QuoteController::class, 'index']);
+Route::get('quotes/{new?}', [QuotesController::class, 'index']);
