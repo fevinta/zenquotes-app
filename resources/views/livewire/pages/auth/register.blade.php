@@ -10,6 +10,7 @@ use Illuminate\Validation\Rules;
 use function Livewire\Volt\layout;
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
+use App\Livewire\Actions\GenerateApiKey;
 
 layout('layouts.guest');
 
@@ -26,20 +27,11 @@ rules([
     'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
 ]);
 
-$generateApiKey = function () {
-    $apiKey = Str::random(80);
-    while (User::where('api_key', $apiKey)->exists()) {
-        $apiKey = Str::random(80);
-    }
-
-    return $apiKey;
-};
-
-$register = function () {
+$register = function (GenerateApiKey $generateApiKey
     $validated = $this->validate();
 
     $validated['password'] = Hash::make($validated['password']);
-    $validated['api_key'] = $this->generateApiKey();
+    $validated['api_key'] = $generateApiKey();
 
     event(new Registered($user = User::create($validated)));
 

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\FavoriteController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 

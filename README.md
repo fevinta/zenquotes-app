@@ -45,7 +45,7 @@ The application should have the following features:
 ### 4. Feature: Cache
 - [X] The application should use caching to improve performance.
 - [X] Cache data should be stored in an SQLite database.
-- [ ] Results of an external API calls should be cached for 30 seconds by default.
+- [X] Results of an external API calls should be cached for 30 seconds by default.
 
 ### 5. Feature: Web/API Authentication
 - [X] The application supports authentication and authorization.
