@@ -27,7 +27,7 @@ rules([
     'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
 ]);
 
-$register = function (GenerateApiKey $generateApiKey
+$register = function (GenerateApiKey $generateApiKey) {
     $validated = $this->validate();
 
     $validated['password'] = Hash::make($validated['password']);

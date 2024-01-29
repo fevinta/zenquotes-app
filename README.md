@@ -76,36 +76,38 @@ The application should have the following features:
 - [X] The page is accessible to authenticated/logged in users.
 
 ### 8. Feature: Five Random Quotes
-- [ ] A web page with URI of “/quotes” that shows 5 random quotes.
-- [ ] The web page should display cached information, if available, by default
-    - [ ] If cache was used, the quotes should be prefixed with an appropriate icon or “[cached]” keyword/tag.
-- [ ] There should be a button to force a reload of list of 5 random quotes with a “new” parameter (e.g., /quotes/new).
-    - [ ] The reload operation updates the cache.
-- [ ] The page is accessible to unauthenticated users only.
-- [ ] The page redirects to “/secure-quotes” for authenticated/logged in users.
+- [X] A web page with URI of “/quotes” that shows 5 random quotes.
+- [X] The web page should display cached information, if available, by default
+    - [X] If cache was used, the quotes should be prefixed with an appropriate icon or “[cached]” keyword/tag.
+- [X] There should be a button to force a reload of list of 5 random quotes with a “new” parameter (e.g., /quotes/new).
+    - [X] The reload operation updates the cache.
+- [X] The page is accessible to unauthenticated users only.
+- [X] The page redirects to “/secure-quotes” for authenticated/logged in users.
 
 ### 9. Feature: Ten Secure Quotes
-- [ ] A web page with URI of “/secure-quotes” that shows 10 random quotes.
-- [ ] The web page should display cached information, if available, by default
-    - [ ] If cache was used, the quotes should be prefixed with an appropriate icon or “[cached]” keyword/tag.
-- [ ] There should be a button to force a reload of list of 10 random quotes with a “new” parameter (e.g., /secure-quotes/new).
-- [ ] There should be a button to add each quote to the list of favorites for the logged in user.
-- [ ] The page is accessible to authenticated/logged in users only.
-- [ ] The page redirects to “/quotes” for unauthenticated users.
+- [X] A web page with URI of “/secure-quotes” that shows 10 random quotes.
+- [X] The web page should display cached information, if available, by default
+    - [X] If cache was used, the quotes should be prefixed with an appropriate icon or “[cached]” keyword/tag.
+- [X] There should be a button to force a reload of list of 10 random quotes with a “new” parameter (e.g., /secure-quotes/new).
+- [X] There should be a button to add each quote to the list of favorites for the logged in user.
+- [X] The page is accessible to authenticated/logged in users only.
+- [X] The page redirects to “/quotes” for unauthenticated users.
 
 ### 10. Feature: Favorite Quotes
 - [X] A web page with URI of “/favorite-quotes” that shows all quotes that have been added to the list of favorites.
 - [X] There should be a button to delete each quote from the list of favorites.
 - [X] The page is accessible to authenticated/logged in users only.
 - [X] If the list of favorite quotes is empty, a message should be shown and suggest to the user how to add quotes to the list.
-- [ ] The page redirects to “/quotes” for unauthenticated users.
+- [X] The page redirects to “/quotes” for unauthenticated users.
 
 ### 11. Feature: Report of Favorite Quotes
 - [X] A web page with URI of “/report-favorite-quotes” that shows a list of registered users and favorite quotes they have added to their list.
 - [X] There should be a button to delete each quote from the list of favorites for the logged in user only.
 - [X] The usernames should be a link that points to the “/login” page with pre-filled username.
 - [X] The page is accessible to authenticated/logged in users only.
-- [ ] The page redirects to “/quotes” for unauthenticated users.
+- [X] The page redirects to “/quotes” for unauthenticated users.
+
+-- OK --
 
 ### 12. Feature: REST API for Five Random Quotes
 - [X] REST API GET endpoint with URI of “/api/quotes” for Feature: Five Random Quotes.

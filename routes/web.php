@@ -14,9 +14,7 @@ use Livewire\Volt\Volt;
 |
 */
 
-Route::get('/', function () {
-    return view('today');
-});
+Route::view('/', 'today')->name('home');
 
 Route::view('today', 'today')->name('today');
 

@@ -26,7 +26,7 @@ $favorite = function (Favorite $favorite) {
 ?>
 
 <div>
-    <h1 class="text-xl font-bold mb-5">Today's Quote</h1>
+    <h1 class="text-xl font-bold mb-5">Quote of the Day</h1>
     <x-quote :cached="$data['cached']" :quote="$data['quotes'][0]">
         <x-refresh-button wire:click="refreshQuote"/>
         <x-favorite-button wire:click="favorite"/>

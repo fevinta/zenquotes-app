@@ -16,7 +16,7 @@ $refreshQuotes = function (ZenQuotesService $service) {
 ?>
 <div>
     <div class="mb-5 flex flex-row justify-between">
-        <h1 class="text-xl font-bold">Random Quotes</h1>
+        <h1 class="text-xl font-bold">Quotes</h1>
         <x-primary-button wire:click="refreshQuotes">Clear Cache</x-primary-button>
     </div>
     <div class="bg-white rounded-lg shadow px-5">

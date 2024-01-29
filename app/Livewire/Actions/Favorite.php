@@ -6,12 +6,8 @@ use App\Models\Author;
 
 class Favorite
 {
-    public function __invoke(string $author, string $quote)
+    public function __invoke(string $author, string $quote): void
     {
-        if (!auth()->check()) {
-            return redirect()->route('login');
-        }
-
         $author = Author::firstOrCreate(['name' => $author]);
 
         $quoteModel = $author->quotes()->firstOrCreate(['quote' => $quote]);
