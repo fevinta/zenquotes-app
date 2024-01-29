@@ -7,25 +7,17 @@ use function Livewire\Volt\{layout, state};
 layout('layouts.app');
 
 state([
-    'quote' => fn(ZenQuotesService $service) => $service->getRandomQuotes()[0]
+    'data' => fn(ZenQuotesService $service) => $service->requestQuotes()
 ]);
 
 $refreshQuote = function (ZenQuotesService $service) {
-    $quotes = $service->getRandomQuotes(forceNew: true);
-    if (empty($quotes)) {
-        $this->quote = [
-            'q' => 'You reach the limit of request, please wait and try again.',
-            'a' => 'Too many requests'
-        ];
-    } else {
-        $this->quote = $quotes[0];
-    }
+    $this->data = $service->requestQuotes(refresh: true);
 };
 
 $favorite = function (Favorite $favorite) {
     $favorite(
-        author: $this->quote['a'],
-        quote: $this->quote['q']
+        author: $this->data['quotes'][0]['a'],
+        quote: $this->data['quotes'][0]['q']
     );
     $this->dispatch('notify', 'Favorite added!');
 };
@@ -33,7 +25,7 @@ $favorite = function (Favorite $favorite) {
 ?>
 <div>
     <h1 class="text-xl font-bold mb-5">Random Quote</h1>
-    <x-quote :quote="$quote['q']" :author="$quote['a']">
+    <x-quote :cached="$data['cached']" :quote="$data['quotes'][0]">
         <x-refresh-button wire:click="refreshQuote"/>
         <x-favorite-button wire:click="favorite"/>
     </x-quote>

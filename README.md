@@ -108,13 +108,13 @@ The application should have the following features:
 - [ ] The page redirects to “/quotes” for unauthenticated users.
 
 ### 12. Feature: REST API for Five Random Quotes
-- [ ] REST API GET endpoint with URI of “/api/quotes” for Feature: Five Random Quotes.
-- [ ] The API should return cached information, if available, by default
+- [X] REST API GET endpoint with URI of “/api/quotes” for Feature: Five Random Quotes.
+- [X] The API should return cached information, if available, by default
     - [ ] If cache was used, each of the quotes should be prefixed with “[cached] ” keyword/tag.
-    - [ ] The API shares cache with the Feature: Five Random Quotes
-- [ ] The API can be forced to fetch and return fresh set of results (and update the cache) with a “new” parameter (e.g., “/api/quotes/new”)
-- [ ] The page is accessible to unauthenticated users.
-- [ ] The page is accessible to authenticated/logged in users.
+    - [X] The API shares cache with the Feature: Five Random Quotes
+- [X] The API can be forced to fetch and return fresh set of results (and update the cache) with a “new” parameter (e.g., “/api/quotes/new”)
+- [X] The page is accessible to unauthenticated users.
+- [X] The page is accessible to authenticated/logged in users.
 
 ### 13. Feature: REST API for Ten Secure Quotes
 - [ ] REST API GET and POST endpoint with URI of “/api/secure-quotes” for Feature: Ten Secure Quotes.
@@ -136,13 +136,13 @@ The application should have the following features:
 - [ ] The page is accessible to authenticated/logged in users.
 
 ### 15. Feature: Console/Shell Command for Five Random Quotes
-- [ ] Create a console/shell command “php artisan Get-FiveRandomQuotes” for Feature: Five Random Quotes.
-- [ ] The console/shell command should return cached information, if available, by default
+- [X] Create a console/shell command “php artisan Get-FiveRandomQuotes” for Feature: Five Random Quotes.
+- [X] The console/shell command should return cached information, if available, by default
     - [ ] If cache was used, each of the quotes should be prefixed with “[cached] ” keyword/tag.
-    - [ ] The console/shell command shares cache with the Feature: Five Random Quotes
-- [ ] The console/shell command can be forced to fetch and return fresh set of results (and update the cache) with a “new” parameter (e.g., “php artisan Get-FiveRandomQuotes --new”)
-- [ ] The console/shell command is accessible to unauthenticated users.
-- [ ] The console/shell command is accessible to authenticated/logged in users.
+    - [X] The console/shell command shares cache with the Feature: Five Random Quotes
+- [X] The console/shell command can be forced to fetch and return fresh set of results (and update the cache) with a “new” parameter (e.g., “php artisan Get-FiveRandomQuotes --new”)
+- [X] The console/shell command is accessible to unauthenticated users.
+- [X] The console/shell command is accessible to authenticated/logged in users.
 
 ### 16. Feature: PHP Automated Testing
 - [ ] All implemented features are tested.
@@ -161,7 +161,7 @@ The application should have the following features:
     - [ ] What matters is the quality of the code and completing all requirements thoroughly.
 
 ## Notes
-- [ ] API requests are restricted to 5 per 30 second period.
-- [ ] API vendor requires that you show attribution with a link back to [https://zenquotes.io/](https://zenquotes.io/) when using the free version of the API.
-- [ ] HTML/CSS/JS styling are not the primary objective of this coding challenge, but good styling is appreciated.
-- [ ] It is more important for your application to be feature-full and usable than have a pretty user interface.
+- [X] API requests are restricted to 5 per 30 second period.
+- [X] API vendor requires that you show attribution with a link back to [https://zenquotes.io/](https://zenquotes.io/) when using the free version of the API.
+- [X] HTML/CSS/JS styling are not the primary objective of this coding challenge, but good styling is appreciated.
+- [X] It is more important for your application to be feature-full and usable than have a pretty user interface.

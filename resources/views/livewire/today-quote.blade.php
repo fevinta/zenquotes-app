@@ -8,22 +8,17 @@ use function Livewire\Volt\{layout, state};
 layout('layouts.app');
 
 state([
-    'quote' => fn(ZenQuotesService $service) => $service->getTodayQuote()
+    'data' => fn(ZenQuotesService $service) => $service->getTodayQuote()
 ]);
 
-$clearCache = function (ZenQuotesService $service) {
-    Cache::forget('today-quote');
-    $this->quote = $service->getTodayQuote();
-};
-
 $refreshQuote = function (ZenQuotesService $service) {
-    $this->quote = $service->getTodayQuote(refresh: true);
+    $this->data = $service->getTodayQuote(refresh: true);
 };
 
 $favorite = function (Favorite $favorite) {
     $favorite(
-        author: $this->quote['data']['a'],
-        quote: $this->quote['data']['q']
+        author: $this->data['quotes'][0]['a'],
+        quote: $this->data['quotes'][0]['q']
     );
     $this->dispatch('notify', 'Today\'s quote added to favorites!');
 };
@@ -32,10 +27,7 @@ $favorite = function (Favorite $favorite) {
 
 <div>
     <h1 class="text-xl font-bold mb-5">Today's Quote</h1>
-    <x-quote :quote="$quote['data']['q']" :author="$quote['data']['a']">
-        @if($quote['cached'])
-            <x-cache-button wire:click="clearCache"/>
-        @endif
+    <x-quote :cached="$data['cached']" :quote="$data['quotes'][0]">
         <x-refresh-button wire:click="refreshQuote"/>
         <x-favorite-button wire:click="favorite"/>
     </x-quote>
