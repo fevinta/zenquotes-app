@@ -107,16 +107,16 @@ The application should have the following features:
 - [X] The page is accessible to authenticated/logged in users only.
 - [X] The page redirects to “/quotes” for unauthenticated users.
 
--- OK --
-
 ### 12. Feature: REST API for Five Random Quotes
 - [X] REST API GET endpoint with URI of “/api/quotes” for Feature: Five Random Quotes.
 - [X] The API should return cached information, if available, by default
-    - [ ] If cache was used, each of the quotes should be prefixed with “[cached] ” keyword/tag.
+    - [X] If cache was used, each of the quotes should be prefixed with “[cached] ” keyword/tag.
     - [X] The API shares cache with the Feature: Five Random Quotes
 - [X] The API can be forced to fetch and return fresh set of results (and update the cache) with a “new” parameter (e.g., “/api/quotes/new”)
 - [X] The page is accessible to unauthenticated users.
 - [X] The page is accessible to authenticated/logged in users.
+
+-- OK --
 
 ### 13. Feature: REST API for Ten Secure Quotes
 - [ ] REST API GET and POST endpoint with URI of “/api/secure-quotes” for Feature: Ten Secure Quotes.
