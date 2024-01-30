@@ -27,14 +27,17 @@ $logout = function (Logout $logout) {
                     <x-nav-link :href="route('today')" :active="request()->routeIs('today')" wire:navigate>
                         {{ __('Today\'s Quotes') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('favorite-quotes')" :active="request()->routeIs('favorite-quotes')" wire:navigate>
+                    <x-nav-link :href="route('favorite-quotes')" :active="request()->routeIs('favorite-quotes')"
+                                wire:navigate>
                         {{ __('Favorites') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('report-favorite-quotes')" :active="request()->routeIs('report-favorite-quotes')" wire:navigate>
+                    <x-nav-link :href="route('report-favorite-quotes')"
+                                :active="request()->routeIs('report-favorite-quotes')" wire:navigate>
                         {{ __('Favorites Quotes Report') }}
                     </x-nav-link>
                     @if(auth()->check())
-                        <x-nav-link :href="route('secure-quotes')" :active="request()->routeIs('secure-quotes')" wire:navigate>
+                        <x-nav-link :href="route('secure-quotes')" :active="request()->routeIs('secure-quotes')"
+                                    wire:navigate>
                             {{ __('Secure Quotes') }}
                         </x-nav-link>
                     @else
@@ -81,6 +84,12 @@ $logout = function (Logout $logout) {
                         </x-slot>
                     </x-dropdown>
                 </div>
+            @else
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')" wire:navigate>
+                        {{ __('Login') }}
+                    </x-nav-link>
+                </div>
             @endif
 
             <!-- Hamburger -->
@@ -105,14 +114,17 @@ $logout = function (Logout $logout) {
             <x-responsive-nav-link :href="route('today')" :active="request()->routeIs('today')" wire:navigate>
                 {{ __('Today\'s Quote') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('favorite-quotes')" :active="request()->routeIs('favorite-quotes')" wire:navigate>
+            <x-responsive-nav-link :href="route('favorite-quotes')" :active="request()->routeIs('favorite-quotes')"
+                                   wire:navigate>
                 {{ __('Favorites') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('report-favorite-quotes')" :active="request()->routeIs('report-favorite-quotes')" wire:navigate>
+            <x-responsive-nav-link :href="route('report-favorite-quotes')"
+                                   :active="request()->routeIs('report-favorite-quotes')" wire:navigate>
                 {{ __('Favorites Quotes Report') }}
             </x-responsive-nav-link>
             @if(auth()->check())
-                <x-responsive-nav-link :href="route('secure-quotes')" :active="request()->routeIs('secure-quotes')" wire:navigate>
+                <x-responsive-nav-link :href="route('secure-quotes')" :active="request()->routeIs('secure-quotes')"
+                                       wire:navigate>
                     {{ __('Secure Quotes') }}
                 </x-responsive-nav-link>
             @else
@@ -144,6 +156,12 @@ $logout = function (Logout $logout) {
                         </x-responsive-nav-link>
                     </button>
                 </div>
+            </div>
+        @else
+            <div class="py-4 border-t border-gray-200">
+                <x-responsive-nav-link :href="route('login')" wire:navigate>
+                    {{ __('Login') }}
+                </x-responsive-nav-link>
             </div>
         @endif
     </div>
