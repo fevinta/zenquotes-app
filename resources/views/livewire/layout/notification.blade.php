@@ -12,7 +12,7 @@ on(['notify' => function ($message) {
 ?>
 
 <div>
-    <x-modal  name="confirm-user-deletion" :show="$errors->isNotEmpty()" focusable>
+    <x-modal maxWidth="md" name="confirm-user-deletion" :show="$errors->isNotEmpty()" focusable>
         <div class="w-full text-center text-gray-500">
             <p class="p-10">{{ $message }}</p>
         </div>

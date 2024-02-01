@@ -19,7 +19,7 @@ $favorite = function (Favorite $favorite) {
         author: $this->data['quotes'][0]['a'],
         quote: $this->data['quotes'][0]['q']
     );
-    $this->dispatch('notify', 'Favorite added!');
+    $this->dispatch('notify', 'Quote added to favorites!');
 };
 
 ?>

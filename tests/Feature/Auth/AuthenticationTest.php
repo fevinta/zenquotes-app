@@ -49,7 +49,7 @@ test('navigation menu can be rendered', function () {
 
     $this->actingAs($user);
 
-    $response = $this->get('/dashboard');
+    $response = $this->get('/today');
 
     $response
         ->assertOk()

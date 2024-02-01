@@ -15,7 +15,7 @@ $quotes = computed(function () {
 
 $unfavoriteQuote = function (int $quoteId, Unfavorite $unfavorite) {
     $unfavorite(quoteId: $quoteId);
-    $this->dispatch('notify', 'Favorite removed!');
+    $this->dispatch('notify', 'Quote removed from favorites!');
 };
 
 ?>

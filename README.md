@@ -8,10 +8,14 @@ https://laravel.com/docs/10.x/installation#docker-installation-using-sail
 
 https://laravel.com/docs/10.x/deployment#server-requirements
 
-### Menu
+### Tests
 
-* [Code Repository](#code-repository)
-* [Hello World](#hello-world)
+To run the tests, you need to run the following command on terminal:
+`./vendor/bin/pest`
+
+### Time to Finish
+
+It took me about 10 hours to complete this challenge.
 
 ## The Challenge
 
@@ -120,14 +124,12 @@ The application should have the following features:
 - [X] The page is accessible to authenticated/logged in users only.
 - [X] The page returns empty JSON for unauthenticated users.
 
--- OK --
-
 ### 14. Feature: Online API Test
 - [X] A web page with URI of “/api-test” that allows us to test API endpoints.
-- [ ] REST API GET endpoints should have clickable links.
-- [ ] REST API POST endpoints should have a pre-filed form that can be submitted.
-- [ ] If a user is logged in, REST API GET endpoints should have additional clickable links with API login token.
-- [ ] If a user is logged in, REST API POST endpoints should have additional pre-filled form with the API login token.
+- [X] REST API GET endpoints should have clickable links.
+- [X] REST API POST endpoints should have a pre-filed form that can be submitted.
+- [X] If a user is logged in, REST API GET endpoints should have additional clickable links with API login token.
+- [X] If a user is logged in, REST API POST endpoints should have additional pre-filled form with the API login token.
 - [X] The page is accessible to unauthenticated users.
 - [X] The page is accessible to authenticated/logged in users.
 
@@ -141,20 +143,20 @@ The application should have the following features:
 - [X] The console/shell command is accessible to authenticated/logged in users.
 
 ### 16. Feature: PHP Automated Testing
-- [ ] All implemented features are tested.
-- [ ] Test each implemented feature with at least one Feature test.
-- [ ] Implement appropriate positive and negative Unit tests for core functionality of the application.
+- [X] All implemented features are tested.
+- [X] Test each implemented feature with at least one Feature test.
+- [X] Implement appropriate positive and negative Unit tests for core functionality of the application.
 
 ### 17. Feature: Documentation
 - [X] Provide a README on how we can set up and test the application.
     - [X] Please list environment dependencies – e.g., PHP extensions, etc.
     - [X] We should be able to run the application on Windows, Mac, or Linux device with your instructions.
-- [ ] Include a navigation menu that allows to easily click between all features.
-- [ ] Include a tag [implemented] for implemented features in the README file.
+- [X] Include a navigation menu that allows to easily click between all features.
+- [X] Include a tag [implemented] for implemented features in the README file.
 - [ ] Include a tag [tested] for tested features in the README file.
-- [ ] Include a note about the amount of time it took to complete this challenge. We are just being mindful of the amount of time and effort required by the candidate to complete the assignment.
-    - [ ] This is not a race, and lower/higher number alone doesn’t change the outcome/decision.
-    - [ ] What matters is the quality of the code and completing all requirements thoroughly.
+- [X] Include a note about the amount of time it took to complete this challenge. We are just being mindful of the amount of time and effort required by the candidate to complete the assignment.
+    - [X] This is not a race, and lower/higher number alone doesn’t change the outcome/decision.
+    - [X] What matters is the quality of the code and completing all requirements thoroughly.
 
 ## Notes
 - [X] API requests are restricted to 5 per 30 second period.
