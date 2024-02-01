@@ -27,15 +27,15 @@ $logout = function (Logout $logout) {
                     <x-nav-link :href="route('today')" :active="request()->routeIs('today')" wire:navigate>
                         {{ __('Today\'s Quotes') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('favorite-quotes')" :active="request()->routeIs('favorite-quotes')"
-                                wire:navigate>
-                        {{ __('Favorites') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('report-favorite-quotes')"
-                                :active="request()->routeIs('report-favorite-quotes')" wire:navigate>
-                        {{ __('Favorites Quotes Report') }}
-                    </x-nav-link>
                     @if(auth()->check())
+                        <x-nav-link :href="route('favorite-quotes')" :active="request()->routeIs('favorite-quotes')"
+                                    wire:navigate>
+                            {{ __('Favorites') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('report-favorite-quotes')"
+                                    :active="request()->routeIs('report-favorite-quotes')" wire:navigate>
+                            {{ __('Favorites Quotes Report') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('secure-quotes')" :active="request()->routeIs('secure-quotes')"
                                     wire:navigate>
                             {{ __('Secure Quotes') }}
@@ -114,15 +114,15 @@ $logout = function (Logout $logout) {
             <x-responsive-nav-link :href="route('today')" :active="request()->routeIs('today')" wire:navigate>
                 {{ __('Today\'s Quote') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('favorite-quotes')" :active="request()->routeIs('favorite-quotes')"
-                                   wire:navigate>
-                {{ __('Favorites') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('report-favorite-quotes')"
-                                   :active="request()->routeIs('report-favorite-quotes')" wire:navigate>
-                {{ __('Favorites Quotes Report') }}
-            </x-responsive-nav-link>
             @if(auth()->check())
+                <x-responsive-nav-link :href="route('favorite-quotes')" :active="request()->routeIs('favorite-quotes')"
+                                       wire:navigate>
+                    {{ __('Favorites') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('report-favorite-quotes')"
+                                       :active="request()->routeIs('report-favorite-quotes')" wire:navigate>
+                    {{ __('Favorites Quotes Report') }}
+                </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('secure-quotes')" :active="request()->routeIs('secure-quotes')"
                                        wire:navigate>
                     {{ __('Secure Quotes') }}

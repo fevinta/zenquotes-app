@@ -30,4 +30,6 @@ Route::middleware(['auth'])->group(function () {
     Route::view('profile', 'profile')->name('profile');
 });
 
+Volt::route('api-test', 'api-test')->name('api-test');
+
 require __DIR__ . '/auth.php';

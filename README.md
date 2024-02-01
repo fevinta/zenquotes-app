@@ -1,23 +1,17 @@
-# Laravel Coding Challenge
+# ZenQuotes.io API Challenge
 
-This is a small engineering challenge that will test the skill and experience of a software developer’s ability to write quality features and unit tests for a common engineering task of taking data from one place and storing it another place. In general, this coding challenge should be completable in around 2-3 hours. Some may complete it faster. It’s not a big issue if you take longer or don’t finish on time.  
-We strive to build quality software that is well-tested and thoroughly documented. We'll be reviewing the submissions of this challenge with the following set of criteria:
+## Setup
 
-- Code Design
-    - Defensive coding principles
-    - Are we handling edge cases?
-    - Is the code self-documenting where possible?
-    - Domain Modeling & Layered Application Structure
-- Feature Completeness
-    - Did you read the instructions carefully and properly implement the feature according to the specification
-- Quality Tests
-    - Do our tests cover the functionality of this feature
-    - Are the tests built robustly and can withstand refactoring
-    - Are the tests mapping to our features or to our code structure?
-- Documentation
-    - Do we have feature documentation?
-    - Is the documentation organized and written in a readable manner?
-    - Are any non-obvious pieces of our code documented?
+https://laravel.com/docs/10.x/installation#docker-installation-using-sail
+
+### Requirements
+
+https://laravel.com/docs/10.x/deployment#server-requirements
+
+### Menu
+
+* [Code Repository](#code-repository)
+* [Hello World](#hello-world)
 
 ## The Challenge
 
@@ -129,18 +123,18 @@ The application should have the following features:
 -- OK --
 
 ### 14. Feature: Online API Test
-- [ ] A web page with URI of “/api-test” that allows us to test API endpoints.
+- [X] A web page with URI of “/api-test” that allows us to test API endpoints.
 - [ ] REST API GET endpoints should have clickable links.
 - [ ] REST API POST endpoints should have a pre-filed form that can be submitted.
 - [ ] If a user is logged in, REST API GET endpoints should have additional clickable links with API login token.
 - [ ] If a user is logged in, REST API POST endpoints should have additional pre-filled form with the API login token.
-- [ ] The page is accessible to unauthenticated users.
-- [ ] The page is accessible to authenticated/logged in users.
+- [X] The page is accessible to unauthenticated users.
+- [X] The page is accessible to authenticated/logged in users.
 
 ### 15. Feature: Console/Shell Command for Five Random Quotes
 - [X] Create a console/shell command “php artisan Get-FiveRandomQuotes” for Feature: Five Random Quotes.
 - [X] The console/shell command should return cached information, if available, by default
-    - [ ] If cache was used, each of the quotes should be prefixed with “[cached] ” keyword/tag.
+    - [X] If cache was used, each of the quotes should be prefixed with “[cached] ” keyword/tag.
     - [X] The console/shell command shares cache with the Feature: Five Random Quotes
 - [X] The console/shell command can be forced to fetch and return fresh set of results (and update the cache) with a “new” parameter (e.g., “php artisan Get-FiveRandomQuotes --new”)
 - [X] The console/shell command is accessible to unauthenticated users.
@@ -152,9 +146,9 @@ The application should have the following features:
 - [ ] Implement appropriate positive and negative Unit tests for core functionality of the application.
 
 ### 17. Feature: Documentation
-- [ ] Provide a README on how we can set up and test the application.
-    - [ ] Please list environment dependencies – e.g., PHP extensions, etc.
-    - [ ] We should be able to run the application on Windows, Mac, or Linux device with your instructions.
+- [X] Provide a README on how we can set up and test the application.
+    - [X] Please list environment dependencies – e.g., PHP extensions, etc.
+    - [X] We should be able to run the application on Windows, Mac, or Linux device with your instructions.
 - [ ] Include a navigation menu that allows to easily click between all features.
 - [ ] Include a tag [implemented] for implemented features in the README file.
 - [ ] Include a tag [tested] for tested features in the README file.
