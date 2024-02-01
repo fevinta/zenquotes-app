@@ -28,6 +28,7 @@ class Authenticate extends Middleware
         if ($request->expectsJson()) {
             try {
                 $this->authenticate($request, $guards);
+                return $next($request);
             } catch (\Throwable $th) {
                 return response()->json([], 401);
             }

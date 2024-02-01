@@ -1,7 +1,7 @@
 <?php
 
-use function Livewire\Volt\{layout, state, form, rules};
 use GuzzleHttp\Client;
+use function Livewire\Volt\{layout, rules, state};
 
 layout('layouts.app');
 
@@ -10,7 +10,8 @@ state([
     'method' => 'GET',
     'path'   => 'quotes',
     'code'   => '',
-    'body'   => ''
+    'body'   => '',
+    'new'    => false
 ]);
 
 rules([
@@ -27,7 +28,7 @@ $makeRequest = function () {
 
     $client = new Client();
 
-    $url = config('app.url') . '/api/' . $this->path;
+    $url = config('app.url') . '/api/' . $this->path . "/" . ($this->new ? "new" : "");
 
     $options = [
         'headers' => [
@@ -41,7 +42,8 @@ $makeRequest = function () {
     }
 
     if (auth()->check()) {
-        $options['headers']['Authorization'] = $this->getApiToken();
+        $token = auth()->user()->createToken('api-token')->plainTextToken;
+        $options['headers']['Authorization'] = "Bearer " . $token;
     }
 
     try {
@@ -95,6 +97,15 @@ $makeRequest = function () {
                 <x-input-error :messages="$errors->get('path')" class="mt-2"/>
             </div>
 
+
+            <div class="block mt-4">
+                <label for="new" class="inline-flex items-center">
+                    <input wire:model="new" id="new" type="checkbox"
+                           class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="new">
+                    <span class="ms-2 text-sm text-gray-600">{{ __('Ignore cache and get new data.') }}</span>
+                </label>
+            </div>
+
             <div class="flex items-center justify-end mt-4">
                 <x-primary-button class="ms-3">
                     {{ __('Test') }}
@@ -109,7 +120,7 @@ $makeRequest = function () {
                 <h2 class="text-xl font-bold">Response</h2>
                 <span class="text-base text-gray-500">Response Code: {{ $this->code }}</span>
             </div>
-            <div class="mt-5 p-5 bg-gray-800 rounded-lg shadow text-white overflow-scroll max-h-[500px]">
+            <div class="mt-5 p-5 bg-gray-800 rounded-lg shadow text-white overflow-auto max-h-[500px]">
                 <pre><code>{{ json_encode($this->body, JSON_PRETTY_PRINT) }}</code></pre>
             </div>
         </div>

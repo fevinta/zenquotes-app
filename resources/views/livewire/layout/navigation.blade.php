@@ -45,6 +45,9 @@ $logout = function (Logout $logout) {
                             {{ __('Quotes') }}
                         </x-nav-link>
                     @endif
+                    <x-nav-link :href="route('api-test')" :active="request()->routeIs('api-test')" wire:navigate>
+                        {{ __('API Test') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -132,6 +135,9 @@ $logout = function (Logout $logout) {
                     {{ __('Quotes') }}
                 </x-responsive-nav-link>
             @endif
+            <x-responsive-nav-link :href="route('api-test')" :active="request()->routeIs('api-test')" wire:navigate>
+                {{ __('API Test') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
